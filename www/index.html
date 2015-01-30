@@ -21,7 +21,30 @@ ons.ready(function() {
 <body>
     <ons-navigator title="Navigator" var="myNavigator">
         <ons-sliding-menu main-page="page1.html" menu-page="menu.html" side="left" max-slide-distance="250px" var="menu">
+
         </ons-sliding-menu>
+
+
+
+
+        <ons-template id="page0.html">
+            <ons-page>
+                <ons-toolbar>
+                    <div class="left">
+                        <ons-toolbar-button ng-click="menu.toggleMenu()">
+                            <ons-icon icon="ion-navicon" style="font-size: 32px; width: 1em;"></ons-icon>
+                        </ons-toolbar-button>
+                    </div>
+                    <div class="center">Search</div>
+                </ons-toolbar>
+
+
+                    <div class="center">
+                        <input type="search" class="search-input" placeholder="Keyword"></input>
+                    </div>
+
+            </ons-page>
+        </ons-template>
 
         <ons-template id="page1.html">
             <ons-page>
@@ -50,11 +73,11 @@ ons.ready(function() {
                     <div class="center">Calendar</div>
                 </ons-toolbar>
 
-                <p style="text-align: center; color: #999; padding-top: 100px;">Babaraba is a mooch</p>
+                <p style="text-align: center; color: #999; padding-top: 100px;">Calendar goes here</p>
             </ons-page>
         </ons-template>
 
-                <ons-template id="page3.html">
+        <ons-template id="page3.html">
             <ons-page>
                 <ons-toolbar>
                     <div class="left">
@@ -72,6 +95,9 @@ ons.ready(function() {
 
         <ons-template id="menu.html">
             <ons-list>
+                <ons-list-item modifier="chevron" onclick="menu.setMainPage('page0.html', {closeMenu: true})">
+                    Search
+                </ons-list-item>
                 <ons-list-item modifier="chevron" onclick="menu.setMainPage('page1.html', {closeMenu: true})">
                     Updates
                 </ons-list-item>
@@ -79,7 +105,7 @@ ons.ready(function() {
                     Calendar
                 </ons-list-item>
 
-                                <ons-list-item modifier="chevron" onclick="menu.setMainPage('page3.html', {closeMenu: true})">
+                <ons-list-item modifier="chevron" onclick="menu.setMainPage('page3.html', {closeMenu: true})">
                     My Clubs
                 </ons-list-item>
             </ons-list>
