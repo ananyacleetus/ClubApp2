@@ -1,10 +1,11 @@
 <!doctype html>
 <meta charset="utf-8">
 <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
-<link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css"> 
+<link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
 <script src="lib/onsen/js/angular/angular.js"></script>
 <script src="lib/onsen/js/onsenui.js"></script>
 <script src="components/loader.js"></script>
+<script src="/js/feed-reader.js"></script>
 <link rel="stylesheet" href="components/loader.css">
 
 
@@ -39,9 +40,9 @@ ons.ready(function() {
                 </ons-toolbar>
 
 
-                    <div class="center">
-                        <input type="search" class="search-input" placeholder="Keyword"></input>
-                    </div>
+                <div class="center">
+                    <input type="search" class="search-input" placeholder="Keyword"></input>
+                </div>
 
             </ons-page>
         </ons-template>
@@ -58,6 +59,12 @@ ons.ready(function() {
                 </ons-toolbar>
 
                 <p style="text-align: center; color: #999; padding-top: 100px;">Updates Go Here</p>
+                <element onload="updateList">
+                    // <script>
+                    // function updateList() {
+                    //     document.getElementById("demo").innerHTML = "Paragraph changed.";
+                    // }
+                    // </script>
             </ons-page>
         </ons-template>
 
