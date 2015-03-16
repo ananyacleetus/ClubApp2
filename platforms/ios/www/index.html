@@ -6,8 +6,9 @@
 <script src="lib/onsen/js/angular/angular.js"></script>
 <script src="lib/onsen/js/onsenui.js"></script>
 <script src="components/loader.js"></script>
-<script src="/js/feed-reader.js"></script>
+<!-- <script src="/js/feed-reader.js"></script> -->
 <link rel="stylesheet" href="components/loader.css">
+
 
 
 <script>
@@ -61,14 +62,16 @@ ons.ready(function() {
 
                 <p style="text-align: center; color: #999; padding-top: 100px;">Updates Go Here</p>
 
+                <div id = "updatefeed"></div>
+
                 <div class="toolbar">
-        <div class="button">Reload</div>
-    </div>
-      
+                    <div class="button">Reload</div>
+                </div>
 
 
-    <ul id="feed-list"></ul>
-    <p id="error-message"></p>
+
+                <ul id="feed-list"></ul>
+                <p id="error-message"></p>
 
 
                 <element onload="updateList">
@@ -76,7 +79,8 @@ ons.ready(function() {
                     // function updateList() {
                     //     document.getElementById("demo").innerHTML = "Paragraph changed.";
                     // }
-                    // </script>
+                    //
+                    </script>
             </ons-page>
         </ons-template>
 
@@ -94,13 +98,16 @@ ons.ready(function() {
 
                 <p style="text-align: center; color: #999; padding-top: 100px;">Calendar goes here</p>
 
-                <div class="toolbar">
-        <div class="button">Reload</div>
-    </div>
-      
+<div id = "calendarfeed"></div>
+            
 
-    <ul id="feed-list"></ul>
-    <p id="error-message"></p>
+                <div class="toolbar">
+                    <div class="button">Reload</div>
+                </div>
+
+
+                <ul id="feed-list"></ul>
+                <p id="error-message"></p>
             </ons-page>
         </ons-template>
 
@@ -121,4 +128,50 @@ ons.ready(function() {
             </ons-list>
         </ons-template>
     </ons-navigator>
+
+     <script> $(function("https://www.reddit.com/r/uscclubapp.xml") {
+    var url = feedurl;
+    var $list = $('.updatefeed');
+    $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'xml',
+        success: function(data) {                
+            var $items = $(data).find('item');
+            $items.each( function() {
+                var $item = $(this);
+                var link = $item.children('link').text();
+                var title = $item.children('title').text();
+                if (link && title) {
+                    $list.append($('<li><a href="' + link + '">' + title + '</a></li>'));
+                }
+            });
+          }
+      });
+  });
+
+ </script>
+     <script> $(function("https://www.reddit.com/r/uscclubappcal.xml") {
+    var url = feedurl;
+    var $list = $('.calendarfeed');
+    $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'xml',
+        success: function(data) {                
+            var $items = $(data).find('item');
+            $items.each( function() {
+                var $item = $(this);
+                var link = $item.children('link').text();
+                var title = $item.children('title').text();
+                if (link && title) {
+                    $list.append($('<li><a href="' + link + '">' + title + '</a></li>'));
+                }
+            });
+          }
+      });
+  });
+
+ </script>
+
 </body>
