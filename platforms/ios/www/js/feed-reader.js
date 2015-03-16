@@ -6,14 +6,14 @@ var Feed = Feed || {
   // URL for RSS
   feedUrl: '',
 
-  function getFeed(clubKey, feedType){
-    if (feedType == 'Calendar'){
-      feedUrl: 'url for feed' + cal.get(clubKey);
-    }
-    else if (feedType == 'Update'){
-      feedUrl: 'url for feed' + upd.get(clubKey);
-    }
-  }
+  // function getFeed(clubKey, feedType){
+  //   if (feedType == 'Calendar'){
+  //     feedUrl: 'url for feed' + cal.get(clubKey);
+  //   }
+  //   else if (feedType == 'Update'){
+  //     feedUrl: 'url for feed' + upd.get(clubKey);
+  //   }
+  // }
 
   // Start to watch click event
   watchClick: function() {
