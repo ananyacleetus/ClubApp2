@@ -8,9 +8,6 @@
 <script src="components/loader.js"></script>
 <!-- <script src="/js/feed-reader.js"></script> -->
 <link rel="stylesheet" href="components/loader.css">
-
-
-
 <script>
 ons.bootstrap();
 ons.ready(function() {
@@ -24,12 +21,7 @@ ons.ready(function() {
 <body>
     <ons-navigator title="Navigator" var="myNavigator">
         <ons-sliding-menu main-page="page1.html" menu-page="menu.html" side="left" max-slide-distance="250px" var="menu">
-
         </ons-sliding-menu>
-
-
-
-
         <ons-template id="page0.html">
             <ons-page>
                 <ons-toolbar>
@@ -40,15 +32,11 @@ ons.ready(function() {
                     </div>
                     <div class="center">Search</div>
                 </ons-toolbar>
-
-
                 <div class="center">
                     <input type="search" class="search-input" placeholder="Keyword"></input>
                 </div>
-
             </ons-page>
         </ons-template>
-
         <ons-template id="page1.html">
             <ons-page>
                 <ons-toolbar>
@@ -59,21 +47,14 @@ ons.ready(function() {
                     </div>
                     <div class="center">Updates</div>
                 </ons-toolbar>
-
                 <p style="text-align: center; color: #999; padding-top: 100px;">Updates Go Here</p>
-
-                <div id = "updatefeed"></div>
-
+                <element onload="pullFeed"></element>
+                <div id="updatefeed"></div>
                 <div class="toolbar">
                     <div class="button">Reload</div>
                 </div>
-
-
-
                 <ul id="feed-list"></ul>
                 <p id="error-message"></p>
-
-
                 <element onload="updateList">
                     <script>
                     // function updateList() {
@@ -83,8 +64,6 @@ ons.ready(function() {
                     </script>
             </ons-page>
         </ons-template>
-
-
         <ons-template id="page2.html">
             <ons-page>
                 <ons-toolbar>
@@ -95,23 +74,16 @@ ons.ready(function() {
                     </div>
                     <div class="center">Calendar</div>
                 </ons-toolbar>
-
                 <p style="text-align: center; color: #999; padding-top: 100px;">Calendar goes here</p>
-
-<div id = "calendarfeed"></div>
-            
-
+                <element onload="pullCal"></element>
+                <div id="calendarfeed"></div>
                 <div class="toolbar">
                     <div class="button">Reload</div>
                 </div>
-
-
                 <ul id="feed-list"></ul>
                 <p id="error-message"></p>
             </ons-page>
         </ons-template>
-
-
         <ons-template id="menu.html">
             <ons-list>
                 <ons-list-item modifier="chevron" onclick="menu.setMainPage('page0.html', {closeMenu: true})">
@@ -123,55 +95,51 @@ ons.ready(function() {
                 <ons-list-item modifier="chevron" onclick="menu.setMainPage('page2.html', {closeMenu: true})">
                     Calendar
                 </ons-list-item>
-
-
             </ons-list>
         </ons-template>
     </ons-navigator>
-
-     <script> $(function("https://www.reddit.com/r/uscclubapp.xml") {
-    var url = feedurl;
-    var $list = $('.updatefeed');
-    $.ajax({
-        url: url,
-        type: 'GET',
-        dataType: 'xml',
-        success: function(data) {                
-            var $items = $(data).find('item');
-            $items.each( function() {
-                var $item = $(this);
-                var link = $item.children('link').text();
-                var title = $item.children('title').text();
-                if (link && title) {
-                    $list.append($('<li><a href="' + link + '">' + title + '</a></li>'));
-                }
-            });
-          }
-      });
-  });
-
- </script>
-     <script> $(function("https://www.reddit.com/r/uscclubappcal.xml") {
-    var url = feedurl;
-    var $list = $('.calendarfeed');
-    $.ajax({
-        url: url,
-        type: 'GET',
-        dataType: 'xml',
-        success: function(data) {                
-            var $items = $(data).find('item');
-            $items.each( function() {
-                var $item = $(this);
-                var link = $item.children('link').text();
-                var title = $item.children('title').text();
-                if (link && title) {
-                    $list.append($('<li><a href="' + link + '">' + title + '</a></li>'));
-                }
-            });
-          }
-      });
-  });
-
- </script>
-
+    <script>
+    $(function pullFeed("https://www.reddit.com/r/uscclubapp.xml") {
+        var url = feedurl;
+        var $list = $('.updatefeed');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'xml',
+            success: function(data) {
+                var $items = $(data).find('item');
+                $items.each(function() {
+                    var $item = $(this);
+                    var link = $item.children('link').text();
+                    var title = $item.children('title').text();
+                    if (link && title) {
+                        $list.append($('<li><a href="' + link + '">' + title + '</a></li>'));
+                    }
+                });
+            }
+        });
+    });
+    </script>
+    <script>
+    $(function pullCal("https://www.reddit.com/r/uscclubappcal.xml") {
+        var url = feedurl;
+        var $list = $('.calendarfeed');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'xml',
+            success: function(data) {
+                var $items = $(data).find('item');
+                $items.each(function() {
+                    var $item = $(this);
+                    var link = $item.children('link').text();
+                    var title = $item.children('title').text();
+                    if (link && title) {
+                        $list.append($('<li><a href="' + link + '">' + title + '</a></li>'));
+                    }
+                });
+            }
+        });
+    });
+    </script>
 </body>
