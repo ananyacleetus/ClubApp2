@@ -99,8 +99,7 @@ ons.ready(function() {
         </ons-template>
     </ons-navigator>
     <script>
-    $(function pullFeed("https://www.reddit.com/r/uscclubapp.xml") {
-        var url = feedurl;
+    $(function pullFeed(var url ='https://www.reddit.com/r/uscclubapp.xml') {
         var $list = $('.updatefeed');
         $.ajax({
             url: url,
@@ -121,8 +120,7 @@ ons.ready(function() {
     });
     </script>
     <script>
-    $(function pullCal("https://www.reddit.com/r/uscclubappcal.xml") {
-        var url = feedurl;
+    $(function pullCal(var url = 'https://www.reddit.com/r/uscclubappcal.xml') {
         var $list = $('.calendarfeed');
         $.ajax({
             url: url,
