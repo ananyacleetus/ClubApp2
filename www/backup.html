@@ -34,18 +34,7 @@ ons.bootstrap();
                             <ons-icon icon="ion-navicon" style="font-size: 32px; width: 1em;"></ons-icon>
                         </ons-toolbar-button>
                     </div>
-                    <div class="center">
-                        <h1>Search</h1>
-                        <ul style="display:inline-block; 
-                        float:none;" class="updresults"></ul>
-                        <ul style="display:inline-block; 
-                        float:none;" class="updcalendar"> </ul>
-                    </div>
                 </ons-toolbar>
-                <div class="center">
-                    <input type="search" class="search-input" id="search-input" placeholder="Keyword"></input>
-                </div>
-                <div class="button" onclick="searchPosts()">Search</div>
             </ons-page>
         </ons-template>
         <ons-template id="page1.html">
@@ -56,19 +45,7 @@ ons.bootstrap();
                             <ons-icon icon="ion-navicon" style="font-size: 32px; width: 1em;"></ons-icon>
                         </ons-toolbar-button>
                     </div>
-                    <div class="wrapper">
-                        <div class="container">
-                            <div class="center">
-                                <h1>Updates</h1>
                 </ons-toolbar>
-                <ul class="posts updates" id="updlist"></ul>
-                </div>
-                </div>
-                </div>
-                </ons-toolbar>
-                <div class="toolbar">
-                    <div class="button" id="reloadUpdates" onclick="reloadUpdates()">Reload</div>
-                </div>
             </ons-page>
         </ons-template>
         <ons-template id="page2.html">
@@ -79,19 +56,7 @@ ons.bootstrap();
                             <ons-icon icon="ion-navicon" style="font-size: 32px; width: 1em;"></ons-icon>
                         </ons-toolbar-button>
                     </div>
-                    <div class="wrapper">
-                        <div class="container">
-                            <div class="center">
-                                <h1>Calendar</h1>
-                                <ul class="posts calendar" id="callist"></ul>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
                 </ons-toolbar>
-                <div class="toolbar">
-                    <div class="button" id="reloadCalendar" onclick="reloadCalendar()">Reload</div>
-                </div>
             </ons-page>
         </ons-template>
         <ons-template id="menu.html">

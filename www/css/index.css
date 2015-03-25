@@ -48,6 +48,11 @@ body {
 }
 /* Portrait layout (default) */
 
+.button {
+    text-align: center;
+    margin: auto;
+}
+
 .app {
     background: url(../img/logo.png) no-repeat center top;
     /* 170px x 200px */
@@ -89,7 +94,7 @@ h1 {
     font-size: 24px;
     font-weight: normal;
     margin: 0px;
-    overflow: visible;
+    overflow: scroll;
     padding: 0px;
     text-align: center;
 }
@@ -182,6 +187,21 @@ ul,
 ol {
     padding-left: 40px;
     padding-left: 4rem;
+    list-style-type: none;
+    white-space: pre-wrap;
+    /* CSS3 */
+    
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    
+    word-wrap: break-word;
+    /* IE */
 }
 
 h1,
@@ -211,6 +231,7 @@ h3 {
 h4 {
     font-size: 24px;
     font-size: 2.4rem;
+    color: #E55451
 }
 
 img {
@@ -228,13 +249,17 @@ img {
     margin: 2rem auto;
 }
 
-.posts {
+.posts,
+.updcalendar,
+.updresults {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.posts li {
+.posts li,
+.updcalendar li,
+.updresults li {
     list-style: none;
     background: #222;
     margin: 30px auto;
@@ -242,13 +267,17 @@ img {
     padding: 20px;
 }
 
-.posts li a {
+.posts li a,
+.updcalendar li a,
+.updresults li a {
     list-style: none;
     color: white;
     text-decoration: none;
 }
 
-.posts li p {
+.posts li p,
+.updcalendar li p,
+.updresults li p {
     list-style: none;
     margin: 0;
     font-size: 20px;

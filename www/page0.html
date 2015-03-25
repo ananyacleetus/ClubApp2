@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="lib/onsen/css/onsenui.css">
+<link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
+<link rel="stylesheet" href="components/loader.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="lib/onsen/js/angular/angular.js"></script>
+<script src="lib/onsen/js/onsenui.js"></script>
+<script src="components/loader.js"></script>
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript" src="js/getPosts.js"></script>
+<script type="text/javascript" src="js/reload.js"></script>
+<script type="text/javascript" src="js/getLists.js"></script>
+<script type="text/javascript" src="js/searchPosts.js"></script>
+<div class="center">
+    <h1>Search</h1>
+    <ul style="list-style-type: none;
+    		white-space: pre-wrap;      /* CSS3 */
+            white-space: -moz-pre-wrap; /* Firefox */
+            white-space: -pre-wrap;     /* Opera <7 */
+            white-space: -o-pre-wrap;   /* Opera 7 */
+       	 	word-wrap: break-word;      /* IE */" class="updresults"></ul>
+    <ul style="list-style-type: none;
+    		white-space: pre-wrap;      /* CSS3 */
+            white-space: -moz-pre-wrap; /* Firefox */
+            white-space: -pre-wrap;     /* Opera <7 */
+            white-space: -o-pre-wrap;   /* Opera 7 */
+       	 	word-wrap: break-word;      /* IE */" class="calresults"></ul>
+</div>
+<div class="center">
+    <input type="search" class="search-input" id="search-input" placeholder="Keyword"></input>
+</div>
+<div class="button" onclick="searchPosts()">Search</div>
